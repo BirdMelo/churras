@@ -9,7 +9,8 @@ const addItem_btn = document.querySelector('.button')
 export const guestList = JSON.parse(localStorage.getItem('people')) || []
 export const itemList = JSON.parse(localStorage.getItem('shopping')) || []
 
-addItem_btn.addEventListener('click', async ()=> {
+addItem_btn.addEventListener('click', async (event)=> {
+    event.preventDefault()
     const text = await customPrompt()
     add_li('shopping', text)
 })

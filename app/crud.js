@@ -22,7 +22,7 @@ export function create_li(storage, listKey){
         const close_btn = document.createElement('p')
         close_btn.id = 'close_cross'
         close_btn.textContent = 'x'
-        close_btn.onclick = ()=>{
+        close_btn.onclick = () =>{
             removeItem(item, listKey)
         }
 
