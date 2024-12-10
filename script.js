@@ -1,16 +1,18 @@
 import { add_li, create_li } from "./app/crud.js";
-import { addLi_itemList, itemList_btn } from "./app/itemList_btn.js";
 import { showCust } from "./app/showCust.js";
+import { customPrompt } from "./app/customPrompt.js";
 
-const buttonList = document.querySelector('.buttonList')
 const guestInput = document.querySelector('#name')
+const addItem_btn = document.querySelector('.button')
 
 export const guestList = JSON.parse(localStorage.getItem('people')) || []
 export const itemList = JSON.parse(localStorage.getItem('shopping')) || []
 
-itemList_btn.forEach(item =>{
-    buttonList.innerHTML += `<li class="button"><p>${item.name}</p></li>`
+addItem_btn.addEventListener('click', async ()=> {
+    const text = await customPrompt()
+    add_li('shopping', text)
 })
+create_li(itemList, 'shopping')
 guestInput.addEventListener('keydown',(event)=>{
     if(event.key === 'Enter'){
         event.preventDefault()
@@ -24,14 +26,5 @@ guestInput.addEventListener('keydown',(event)=>{
 })
 create_li(guestList, 'people')
 
-document.querySelectorAll('.button').forEach(button => {
-    button.addEventListener('click', async () => {
-        const textOfLi = await addLi_itemList(button)
-        add_li('shopping', textOfLi)
-        itemList.push(...JSON.parse(localStorage.getItem('shopping')) || [] )
-        location.reload()
-    })
-})
-create_li(itemList, 'shopping')
 showCust();
 

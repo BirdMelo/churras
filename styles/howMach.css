@@ -4,12 +4,19 @@
     background-color: var(--bg);
     width: 60vw;
     max-width: 500px;
-    height: 100px;
-    padding: 12px;
+    height: 230px;
+    padding: 12px 90px;
 
 
     display: none;
-    grid-template-columns: 70%;
+    grid-template-columns: 50%;
+    grid-template-areas:
+    "h3 h3"
+    "label1 input1"
+    "label2 input2"
+    "label3 input3"
+    ;
+    gap: 8px;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -17,24 +24,61 @@
     inset: 50% 50%;
     transform: translate(-50%, -50%);
 }
-/* #howMach label, #howMach input {
-    width: 25%;
-} */
+#howMach h3 {
+    grid-area: h3;
+    text-align: center;
+}
 #howMach label{
     font-size: 1rem;
-    text-align: center;
+    justify-self: start;
+}
+#howMach label:nth-last-of-type(1) {
+    grid-area: label1;
+}
+#howMach label:nth-last-of-type(2) {
+    grid-area: label2;
+}
+#howMach label:nth-last-of-type(3) {
+    grid-area: input2;
+    justify-self: end;
+}
+#howMach label:nth-last-of-type(4) {
+    grid-area: label3;
+}
+#units {
+    background-color: var(--bg);
+    border: solid 1px var(--border-ListItems);
+    padding: 4px 10px;
+    color: var(--text-color);
+    font-size: 1rem;
 }
 #howMach input{
     font-size: 1rem;
     background-color: var(--bg);
     color: var(--text-color);
     border: var(--border-ListItems) solid 1px;
-    text-align: center;
     padding: 4px;
-    width: 35%;
-    justify-self: center;
+    justify-self: start;
 
+}
+#howMach input:nth-last-of-type(1) {
+    grid-area: input1;
+}
+#howMach input:nth-last-of-type(2) {
+    grid-area: input2;
+    width: 50%;
+}
+#howMach input:nth-last-of-type(3) {
+    grid-area: input3;
 }
 #howMach input:focus{
     outline: none;
+}
+#howMach button {
+    background-color: var(--bg);
+    border: solid 1px var(--border-ListItems);
+    padding: 6px;
+    margin-top: 15px;
+    color: var(--text-color);
+    font-size: 1rem;
 }
