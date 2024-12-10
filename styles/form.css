@@ -7,29 +7,35 @@ form {
     max-width: 650px;
 }
 form label {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: 1fr 20%;
+    grid-template-areas: 
+    "text text"
+    "input button"
+    ;
+    row-gap: 8px;
     width: 50%;
     max-width: 350px;
 }
 form label p{
+    grid-area: text;
     align-self: start;
 }
 form label input {
+    grid-area: input;
     width: 100%;
     padding: 5px 10px;
-    border-radius: 8px;
-    border: none;
+    border-radius: 8px 0px 0px 8px;
+    border: solid 2px orangered;
 }
 form label input:focus, button:focus{
     outline: orangered solid 2px;
 }
-.buttonList{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    max-width: 650px;
+form label button {
+    background-color: var(--bg);
+    border: solid 1px var(--border-ListItems);
+    color: var(--text-color);
+    font-size: 1rem;
 }
 @media screen and (max-width: 740px) {
     form label{

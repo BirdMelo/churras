@@ -33,11 +33,15 @@ export function create_li(storage, listKey){
 }
 function removeItem(item, listKey){
     const storage = JSON.parse(localStorage.getItem(listKey))
+    const itemData = JSON.parse(localStorage.getItem('dataItems')) || [];
     const itemIndex = storage.indexOf(item)
-    
     if (itemIndex !== -1) {
         storage.splice(itemIndex, 1)
         localStorage.setItem(listKey, JSON.stringify(storage))
+        if(listKey === 'shopping') {
+            itemData.splice(itemIndex, 1);
+            localStorage.setItem('dataItems', JSON.stringify(itemData))
+        }
         create_li(storage, listKey)
     }
     location.reload()
