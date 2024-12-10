@@ -2,14 +2,14 @@
     border: solid 1px var(--border-ListItems);
     border-radius: 8px;
     background-color: var(--bg);
-    width: 60vw;
+    width: 95vw;
     max-width: 500px;
     height: 230px;
     padding: 12px 90px;
 
 
     display: none;
-    grid-template-columns: 50%;
+    grid-template-columns: repeat(2, 50%);
     grid-template-areas:
     "h3 h3"
     "label1 input1"
@@ -48,7 +48,7 @@
 #units {
     background-color: var(--bg);
     border: solid 1px var(--border-ListItems);
-    padding: 4px 10px;
+    padding: 3.5px 10px;
     color: var(--text-color);
     font-size: 1rem;
 }
@@ -59,6 +59,7 @@
     border: var(--border-ListItems) solid 1px;
     padding: 4px;
     justify-self: start;
+    width: 100%;
 
 }
 #howMach input:nth-last-of-type(1) {
@@ -81,4 +82,9 @@
     margin-top: 15px;
     color: var(--text-color);
     font-size: 1rem;
+}
+@media screen and (max-width: 501px) {
+    #howMach {
+        padding: 12px 12px;
+    }
 }
